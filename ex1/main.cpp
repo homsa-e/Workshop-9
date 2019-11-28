@@ -85,9 +85,8 @@ std::map<std::string, city_data> worldCities ()
 
                tokens[tokens.size () - 1].front () == '"'
                &&
-               (tokens[tokens.size () - 1].back () != '"'
-               ||
-               tokens[tokens.size () - 1].size () == 1))
+               (tokens[tokens.size () - 1].back () != '"' ||
+                tokens[tokens.size () - 1].size () == 1))
           {
               tokens[tokens.size () - 1] += "," + token;
           }
