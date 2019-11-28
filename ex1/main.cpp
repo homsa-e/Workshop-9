@@ -96,8 +96,6 @@ std::map<std::string, city_data> worldCities ()
           }
       }
 
-
-      std::cout << result.size() << std::endl;
       if (tokens.size () == total_columns)
         result[tokens[worldcities_data_columns::city_ascii]] = city_data (tokens);
       else
