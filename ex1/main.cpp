@@ -2,7 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include <unordered_set>
 #include <cassert>
 #include <algorithm>
@@ -61,12 +61,12 @@ struct city_data
     bool is_capital;
 };
 
-std::map<std::string, city_data> worldCities ()
+std::unordered_map<std::string, city_data> worldCities ()
 {
     std::ifstream in ("worldcities.csv");
     std::string line;
 
-    std::map<std::string, city_data> result;
+    std::unordered_map<std::string, city_data> result;
 
     std::getline (in, line);
     while (!in.eof() && in.good ())
@@ -104,7 +104,7 @@ std::map<std::string, city_data> worldCities ()
     return result;
 }
 
-size_t howManyCountries (const std::map<std::string, city_data> &world_cities)
+size_t howManyCountries (const std::unordered_map<std::string, city_data> &world_cities)
 {
     std::unordered_set<std::string> countries;
     for (const std::pair<const std::string, city_data> &data : world_cities)
@@ -117,7 +117,7 @@ size_t howManyCountries (const std::map<std::string, city_data> &world_cities)
 
 int main ()
 {
-  std::map<std::string, city_data> world_cities = worldCities ();
+  std::unordered_map<std::string, city_data> world_cities = worldCities ();
   size_t number_of_countries = howManyCountries (world_cities);
   std::cout << number_of_countries << std::endl;
   return 0;
